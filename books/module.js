@@ -15,7 +15,7 @@ exports.getBookById = async (bookId) => {
 
 exports.updateBookById = async (bookId, bookPayload) => {
   // const book = await getBookById(bookId);
-  const book = await Book.findByPk(id);
+  const book = await Book.findByPk(bookId);
   if (!book) throw new Error('Book not found. Please enter valid ID');
   book.set({
     bookTitle: bookPayload.bookTitle,
@@ -27,7 +27,7 @@ exports.updateBookById = async (bookId, bookPayload) => {
 
 exports.deleteBookById = async (bookId) => {
   // const book = await getBookById(bookId);
-  const book = await Book.findByPk(id);
+  const book = await Book.findByPk(bookId);
   if (!book) throw new Error('Book not found. Please enter valid ID');
   await book.destroy();
   return 'Book is deleted successfully';
