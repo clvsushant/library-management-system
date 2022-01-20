@@ -1,15 +1,12 @@
 const supertest = require("supertest");
 const app = require("../../app");
+const { connectToDB } = require("../../database");
 const request = supertest(app);
 
 describe("Books tests", () => {
 
-    //Validating Inputs and input Ids-----------------------------------------------------------
-    it("should validate book body", async () => {
-        const response = await request.post("/books").send({});
-        expect(response.statusCode).toBe(400);
-        expect(response.body.message).toBeDefined();
-        expect(response.body.message).toBe("Body is required");
+    beforeAll(async () => {
+        await connectToDB();
     });
 
     it("should validate the bookTitle", async ()=>{
@@ -41,7 +38,7 @@ describe("Books tests", () => {
         const bookId =response.body.bookId;
 
         const response2 = await request.get(`/books/${bookId+1}`);
-        expect(response2.statusCode).toBe(404);
+        expect(response2.statusCode).toBe(400);
         expect(response2.body.message).toBeDefined;
         expect(response2.body.message).toBe("Book not found. Please enter valid ID");
 
