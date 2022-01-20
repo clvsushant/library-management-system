@@ -94,7 +94,7 @@ describe('Books tests', () => {
     const response3 = await request.get(`/books/${bookId}`);
     expect(response3.statusCode).toBe(200);
     expect(response3.body.bookId).toBe(bookId);
-    expect(response3.body.bookTitle).toBe('A Game of Thrones');
+    expect(response3.body.bookTitle).toBe('A Game of thrones');
     expect(response3.body.bookAuthor).toBe('George R R Martin');
   });
 
