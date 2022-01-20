@@ -29,8 +29,7 @@ exports.deleteBookById = async (bookId) => {
   // const book = await getBookById(bookId);
   const book = await Book.findByPk(bookId);
   if (!book) throw new Error('Book not found. Please enter valid ID');
-  await book.destroy();
-  return 'Book is deleted successfully';
+  if (await book.destroy()) return true;
 };
 
 exports.getAllBook = async () => {
