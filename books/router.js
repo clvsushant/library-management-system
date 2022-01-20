@@ -4,6 +4,7 @@ const {
   getBookById,
   updateBookById,
   deleteBookById,
+  getAllBook,
 } = require('./module');
 const route = Router();
 
@@ -41,8 +42,7 @@ route.post('/:bookId', async (req, res) => {
 
 route.delete('/:bookId', async (req, res) => {
   try {
-    if (await deleteBookById(req.params.bookId))
-      res.status(200).send('Book deleted successfully');
+    res.status(200).send(await deleteBookById(req.params.bookId));
   } catch (err) {
     res.status(400).send({ message: err.message });
   }

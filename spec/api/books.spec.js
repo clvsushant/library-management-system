@@ -111,7 +111,7 @@ describe('Books tests', () => {
 
     const response2 = await request.delete(`/books/${bookId}`);
     expect(response2.statusCode).toBe(200);
-    expect(response2.body).toBe('Book is deleted successfully');
+    expect(response2.text).toBe('Book is deleted successfully');
 
     const response3 = await request.get(`/books/${bookId}`);
     expect(response3.statusCode).toBe(400);
