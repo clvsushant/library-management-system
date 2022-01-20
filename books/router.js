@@ -42,7 +42,7 @@ route.post('/:bookId', async (req, res) => {
 route.delete('/:bookId', async (req, res) => {
   try {
     if (await deleteBookById(req.params.bookId))
-      return res.status(200).send('Book deleted successfully');
+      res.status(200).send('Book deleted successfully');
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
