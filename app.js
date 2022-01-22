@@ -8,6 +8,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openApiDocumentation));
 
+app.use('/books', require('./books/router'));
+app.use('/students', require('./students/router'));
+
 app.get('/', (req, res) => {
   res
     .status(200)
@@ -16,6 +19,5 @@ app.get('/', (req, res) => {
     );
 });
 
-app.use('/books', require('./books/router'));
 
 module.exports = app;

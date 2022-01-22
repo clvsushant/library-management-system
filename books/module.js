@@ -4,7 +4,7 @@ const { Op } = require('sequelize');
 
 exports.createBook = async (bookPayload) => {
   await bookSchema.validateAsync(bookPayload);
-  return await Book.create(bookPayload);
+  return Book.create(bookPayload);
 };
 
 exports.getBookById = async (bookId) => {
@@ -34,6 +34,5 @@ exports.deleteBookById = async (bookId) => {
 };
 
 exports.getAllBook = async () => {
-  const books = await Book.findAll();
-  return books;
+  return await Book.findAll();
 };

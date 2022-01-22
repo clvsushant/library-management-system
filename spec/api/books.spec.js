@@ -38,7 +38,7 @@ describe('Books tests', () => {
 
     const response2 = await request.get(`/books/${bookId + 1}`);
     expect(response2.statusCode).toBe(400);
-    expect(response2.body.message).toBeDefined;
+    expect(response2.body.message).toBeDefined();
     expect(response2.body.message).toBe(
       'Book not found. Please enter valid ID'
     );

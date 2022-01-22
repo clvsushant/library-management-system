@@ -21,6 +21,18 @@ exports.Book = sequelize.define('Book', {
   },
 });
 
+exports.Student = sequelize.define('Student', {
+  studentId: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  studentName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  }
+})
+
 exports.connectToDB = async () => {
   try {
     await sequelize.authenticate();
