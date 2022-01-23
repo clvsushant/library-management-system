@@ -1,5 +1,5 @@
 const { bookSchema } = require('./validation');
-const { Book } = require('../database');
+const { Book, Student, Loan } = require('../database');
 const { Op } = require('sequelize');
 
 exports.createBook = async (bookPayload) => {
@@ -35,4 +35,15 @@ exports.deleteBookById = async (bookId) => {
 
 exports.getAllBook = async () => {
   return await Book.findAll();
+};
+
+exports.getLoans = async (bookId) => {
+  return Loan.findAll({
+    where: [{ bookId: bookId }],
+    include: [
+      {
+        model: Student,
+      },
+    ],
+  });
 };

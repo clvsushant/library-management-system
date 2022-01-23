@@ -1,5 +1,5 @@
 const { studentSchema } = require('./validation');
-const { Student, Book } = require('../database');
+const { Student, Book, Loan } = require('../database');
 
 exports.createStudent = async (studentPayload) => {
   await studentSchema.validateAsync(studentPayload);
@@ -31,4 +31,15 @@ exports.deleteStudentById = async (studentId) => {
   if (!student) throw new Error('Student not found. Please enter valid ID');
   await student.destroy();
   return 'Student is deleted successfully';
+};
+
+exports.getLoans = async (studentId) => {
+  return Loan.findAll({
+    where: [{ studentId: studentId }],
+    include: [
+      {
+        model: Book,
+      },
+    ],
+  });
 };
