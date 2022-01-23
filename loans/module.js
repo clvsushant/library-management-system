@@ -1,5 +1,5 @@
 const { loanSchema } = require('./validation');
-const { Loan } = require('../database');
+const { Book, Loan, Student } = require('../database');
 
 exports.createLoan = async (loanPayload) => {
   await loanSchema.validateAsync(loanPayload);
