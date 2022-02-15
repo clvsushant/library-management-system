@@ -266,15 +266,27 @@ describe('Loans tests', () => {
 
     const response7 = await request.get('/loanHistory');
     expect(response7.statusCode).toBe(200);
-    expect(response7.body[0].bookId).toBe(bookId1);
-    expect(response7.body[0].studentId).toBe(studentId2);
-    expect(response7.body[0].loanId).toBe(loanId1);
-    expect(response7.body[0].outDate).toBe('2020-03-22T00:00:00.000Z');
-    expect(response7.body[0].returnDate).toBe('2020-03-22T00:00:00.000Z');
-    expect(response7.body[1].bookId).toBe(bookId2);
-    expect(response7.body[1].studentId).toBe(studentId1);
-    expect(response7.body[1].loanId).toBe(loanId2);
-    expect(response7.body[1].outDate).toBe('2020-03-22T00:00:00.000Z');
-    expect(response7.body[1].returnDate).toBe('2020-03-22T00:00:00.000Z');
+    expect(response7.body[response7.body.length - 2].bookId).toBe(bookId1);
+    expect(response7.body[response7.body.length - 2].studentId).toBe(
+      studentId2
+    );
+    expect(response7.body[response7.body.length - 2].loanId).toBe(loanId1);
+    expect(response7.body[response7.body.length - 2].outDate).toBe(
+      '2020-03-22T00:00:00.000Z'
+    );
+    expect(response7.body[response7.body.length - 2].returnDate).toBe(
+      '2020-03-22T00:00:00.000Z'
+    );
+    expect(response7.body[response7.body.length - 1].bookId).toBe(bookId2);
+    expect(response7.body[response7.body.length - 1].studentId).toBe(
+      studentId1
+    );
+    expect(response7.body[response7.body.length - 1].loanId).toBe(loanId2);
+    expect(response7.body[response7.body.length - 1].outDate).toBe(
+      '2020-03-22T00:00:00.000Z'
+    );
+    expect(response7.body[response7.body.length - 1].returnDate).toBe(
+      '2020-03-22T00:00:00.000Z'
+    );
   });
 });

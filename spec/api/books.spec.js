@@ -139,11 +139,19 @@ describe('Books tests', () => {
 
     const response3 = await request.get('/books');
     expect(response3.statusCode).toBe(200);
-    expect(response3.body[0].bookTitle).toBe('A Clash of Kings');
-    expect(response3.body[0].bookAuthor).toBe('George R R Martin');
-    expect(response3.body[0].bookId).toBe(bookId1);
-    expect(response3.body[1].bookTitle).toBe('A song of ice and fire');
-    expect(response3.body[1].bookAuthor).toBe('George R R Martin');
-    expect(response3.body[1].bookId).toBe(bookId2);
+    expect(response3.body[response3.body.length - 2].bookTitle).toBe(
+      'A Clash of Kings'
+    );
+    expect(response3.body[response3.body.length - 2].bookAuthor).toBe(
+      'George R R Martin'
+    );
+    expect(response3.body[response3.body.length - 2].bookId).toBe(bookId1);
+    expect(response3.body[response3.body.length - 1].bookTitle).toBe(
+      'A song of ice and fire'
+    );
+    expect(response3.body[response3.body.length - 1].bookAuthor).toBe(
+      'George R R Martin'
+    );
+    expect(response3.body[response3.body.length - 1].bookId).toBe(bookId2);
   });
 });

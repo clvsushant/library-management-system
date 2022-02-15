@@ -70,7 +70,7 @@ exports.connectToDB = async () => {
   try {
     await sequelize.authenticate();
     console.log('Connected to database');
-    await sequelize.sync({ force: true });
+    await sequelize.sync();
     console.log('Tables are now available');
   } catch (err) {
     console.error(err);
