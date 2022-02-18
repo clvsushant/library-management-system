@@ -19,8 +19,7 @@ exports.getAllLoan = async () => {
 exports.updateLoanById = async (loanId, loanPayload) => {
   const loan = await Loan.findByPk(loanId);
   if (!loan) throw new Error('Loan not found. Please enter valid ID');
-  loan.set(loanPayload);
-  loan.save();
+  loan.update(loanPayload);
   return loan;
 };
 
