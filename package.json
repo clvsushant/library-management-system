@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "./node_modules/jasmine/bin/jasmine.js",
     "start": "node index.js"
   },
   "keywords": [],

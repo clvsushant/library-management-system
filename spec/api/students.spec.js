@@ -118,9 +118,9 @@ describe('Students tests', () => {
 
     const response3 = await request.get('/students');
     expect(response3.statusCode).toBe(200);
-    expect(response3.body[0].studentName).toBe('Jonny');
-    expect(response3.body[0].studentId).toBe(studentId1);
-    expect(response3.body[1].studentName).toBe('John');
-    expect(response3.body[1].studentId).toBe(studentId2);
+    expect(response3.body[0].studentName).toBe('John');
+    expect(response3.body[0].studentId).toBe(studentId2);
+    expect(response3.body[1].studentName).toBe('Jonny');
+    expect(response3.body[1].studentId).toBe(studentId1);
   });
 });

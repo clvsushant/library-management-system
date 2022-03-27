@@ -7,7 +7,7 @@ exports.createStudent = async (studentPayload) => {
 };
 
 exports.getAllStudents = async () => {
-  return await Student.findAll();
+  return await Student.findAll({ order: [['studentId', 'DESC']] });
 };
 
 exports.getStudentById = async (studentId) => {
